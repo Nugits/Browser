@@ -11,6 +11,7 @@ import { IndexComponent } from './components/index/index.component';
 import { RepositoryComponent } from './components/repository/repository.component';
 
 import { HttpService } from './services/http.service';
+import { IssueService } from './services/issue.service';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,8 @@ import { HttpService } from './services/http.service';
     AppRoutingModule
   ],
   providers: [
+    IssueService,
+    HttpService
   ],
   bootstrap: [AppComponent]
 })
