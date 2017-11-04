@@ -1,0 +1,45 @@
+body{
+    margin: 0;
+    height:100%;
+    width:100%;
+}
+#GIB{
+   color:white;
+   margin-right: 58%;
+   font-family: Palatino;
+   font-size: 2em;
+   font-weight: normal;
+   
+}
+#wrapper{
+   width:100%;
+   height:100%;
+   display:block;
+   position:absolute;
+}
+#header{
+   background-color:black;
+   height:20%;
+   width:100%;
+   display:block;
+ 
+   
+}
+#content_Header{
+   padding:50px;
+}
+
+#dynamic_content{
+   background-color:white;
+   height:70%;
+   width:70%;
+   display:block;
+   margin: 0 auto;
+}
+#footer{
+   background-color:white;
+   height:10%;
+   width:70%; 
+   display:block;
+   margin: 0 auto;
+}
