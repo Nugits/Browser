@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
 const http = require('http');
+const backend = require('./server/server.js');
 const app = express();
 
 // API file for interacting with MongoDB
@@ -20,6 +21,8 @@ app.use(express.static(path.join(__dirname, 'dist')));
 app.get('/api/test', (req, res) => {
     res.send(JSON.stringify('Hello'));
 }); 
+
+backend.register(app);
 
 // Send all other requests to the Angular app
 app.get('*', (req, res) => {
