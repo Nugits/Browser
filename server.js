@@ -8,8 +8,8 @@ const app = express();
 //const api = require('./server/routes/api');
 
 // Parsers
-//app.use(bodyParser.json());
-//app.use(bodyParser.urlencoded({ extended: false}));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false}));
 
 // Angular DIST output folder
 app.use(express.static(path.join(__dirname, 'dist')));
@@ -17,8 +17,8 @@ app.use(express.static(path.join(__dirname, 'dist')));
 // API location
 //app.use('/api', api);
 
-app.get('/test', (req, res) => {
-    res.send('Hello');
+app.get('/api/test', (req, res) => {
+    res.send(JSON.stringify('Hello'));
 }); 
 
 // Send all other requests to the Angular app
