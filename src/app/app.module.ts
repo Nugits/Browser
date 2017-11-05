@@ -12,12 +12,16 @@ import { RepositoryComponent } from './components/repository/repository.componen
 
 import { HttpService } from './services/http.service';
 import { IssueService } from './services/issue.service';
+import { IssueComponent } from './components/issue/issue.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     IndexComponent,
-    RepositoryComponent
+    RepositoryComponent,
+    IssueComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

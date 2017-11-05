@@ -4,6 +4,8 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { IndexComponent } from './components/index/index.component';
 import { RepositoryComponent } from './components/repository/repository.component';
+import { IssueComponent } from './components/issue/issue.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 const routes: Routes = [
   {
@@ -16,8 +18,16 @@ const routes: Routes = [
     component: IndexComponent
   },
   {
+    path: ':owner/:repository/issues/:id',
+    component: IssueComponent
+  },
+  {
     path: ':owner/:repository',
     component: RepositoryComponent
+  },
+  {
+    path: '**',
+    component: NotFoundComponent
   }
 ]
 
