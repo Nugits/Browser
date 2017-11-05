@@ -19,7 +19,7 @@ function Server() {
                 });
         });
 
-        api.get('/api/request', function (req, res) {
+        express.get('/api/request', function (req, res) {
             doRequessPromise(req.query.link)
                 .then(function (obj) {
                     res.send(obj);
