@@ -1,0 +1,146 @@
+
+#left_side{     /*HERE*/
+    font: 12pt sans-serif;
+    float: left; 
+    padding: 10px; 
+    margin-right: 20px; 
+    width: 40%; 
+}   
+#right_side{  
+
+   font: 12pt sans-serif; 
+     padding: 10px
+         
+}
+
+
+#NameRepository{
+    text-align: center;
+     color: #0366d6;
+    font-size: 18px;
+}
+#Description{
+    text-align: justify;
+    color: #24292e;
+    font-size: 18px;
+}
+
+#Photo{
+    text-align: center; 
+    width:50%;
+    height: 100%;
+    margin: 0 auto;
+    padding-top: 45px;
+    
+}
+#Author{
+    
+}
+#TitleContributors{
+    text-align: center;
+    font-size:18px;
+    color:orange;
+    padding-top: 45px;
+}
+#Contributors{
+    text-align: justify;
+   
+    
+}
+.contributors{
+    
+}
+
+#IssueForm{
+ padding-top: 60px;
+ padding-bottom: 35px;
+
+clear: both;
+ 
+}
+#Issue{
+    text-align: center;
+}
+.issue{
+    border-bottom: 1px solid #CBC1C1;
+}
+.textIssue{
+    color:black;
+    font-size: 16px;
+    
+}
+a{
+    text-decoration: none;
+}
+
+#PhotoAndContributorsTable{
+     border-collapse: collapse; 
+     border: 1px solid #CBC1C1;
+}
+
+.IssueFormText{
+    font-size: 24px;
+}
+#IssueTable{ 
+    width: 30%; 
+    border-collapse: collapse; 
+    border: 1px solid #CBC1C1; 
+    
+
+   }
+
+tr .TrIssueTable { 
+    text-align: left; 
+    padding: 5px; 
+    border: 1px solid #CBC1C1; 
+    border-bottom: 1px solid #CBC1C1;
+   }
+td  { 
+   
+    padding: 5px; 
+    border-bottom: 1px solid #CBC1C1; 
+    font-size: 24px;
+   }
+
+.Resolution{
+    background-color: #CBCBCB;
+    width:40px;
+    height:30px;
+    text-align: center;
+    border-radius: 8px;
+    font-size:24px;
+    color:white;
+    
+
+    
+}
+.Component{
+    background-color: #3818EB;
+    width:40px;
+    height:30px;
+    text-align: center;
+    border-radius: 8px;
+    font-size:24px;
+    color:white;
+    
+}
+.Bug{
+    background-color: red;
+    width:40px;
+    height:30px;
+    text-align: center;
+    border-radius: 8px;
+    font-size:24px;
+    color:white;
+    
+}
+.Browser{
+    background-color: #27ADEC;
+    width:40px;
+    height:30px;
+    text-align: center;
+    border-radius: 8px;
+    font-size:24px;
+    color:white;
+    
+}
