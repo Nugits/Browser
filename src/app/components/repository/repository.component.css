@@ -54,7 +54,7 @@
 #IssueForm{
  padding-top: 60px;
  padding-bottom: 35px;
-
+ margin: 0 auto;
 clear: both;
  
 }
@@ -143,4 +143,22 @@ td  {
     font-size:24px;
     color:white;
     
+}
+#TableIssue{
+    width:55%;
+    border: 1px solid #CBC1C1;
+    
+}
+table #TableIssue{
+    width:100%;
+    border-collapse: collapse; 
+     
+}
+
+.Td:hover{
+    background-color: #F8FBFC;
+    cursor: pointer;
+}
+#UrlIssue:hover{
+    color: #0366d6;
 }
