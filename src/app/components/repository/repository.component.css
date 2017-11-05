@@ -34,7 +34,7 @@
     
 }
 #Author{
-    
+    padding-top:10px;
 }
 #TitleContributors{
     text-align: center;
@@ -88,7 +88,13 @@ a{
     
 
    }
-
+.Td{
+    border-bottom: 0px;
+}
+.TdIssueTable{
+    padding-left: 30%;
+    padding-right: 100%;
+}
 tr .TrIssueTable { 
     text-align: left; 
     padding: 5px; 
@@ -99,7 +105,7 @@ td  {
    
     padding: 5px; 
     border-bottom: 1px solid #CBC1C1; 
-    font-size: 24px;
+    font-size: 14px;
    }
 
 .Resolution{
@@ -107,7 +113,7 @@ td  {
     width:40px;
     height:30px;
     text-align: center;
-    border-radius: 8px;
+    border-radius: 16px;
     font-size:24px;
     color:white;
     
@@ -119,7 +125,7 @@ td  {
     width:40px;
     height:30px;
     text-align: center;
-    border-radius: 8px;
+    border-radius: 16px;
     font-size:24px;
     color:white;
     
@@ -129,7 +135,7 @@ td  {
     width:40px;
     height:30px;
     text-align: center;
-    border-radius: 8px;
+    border-radius: 16px;
     font-size:24px;
     color:white;
     
@@ -139,7 +145,7 @@ td  {
     width:40px;
     height:30px;
     text-align: center;
-    border-radius: 8px;
+    border-radius: 16px;
     font-size:24px;
     color:white;
     
@@ -154,11 +160,11 @@ table #TableIssue{
     border-collapse: collapse; 
      
 }
-
-.Td:hover{
+.issue:hover{
     background-color: #F8FBFC;
     cursor: pointer;
 }
+
 #UrlIssue:hover{
     color: #0366d6;
 }
