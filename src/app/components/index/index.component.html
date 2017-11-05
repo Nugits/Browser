@@ -2,6 +2,9 @@
 <br/>
 <br/>
 <form>
-  <input placeholder="Paste repository name here" id="FindRepository"type="text" name="FindRepository" />
-  <input id="submit" type="submit" value="Analyse"  />  
+  <input placeholder="Paste repository name here" id="FindRepository"type="text" name="FindRepository" [(ngModel)]="search" />
+  <input id="submit" type="submit" value="Analyse" (click)="searchClick()" />  
 </form>
+<div class="error">
+  {{error}}
+</div>

@@ -18,17 +18,23 @@ body{
 }
 #header{
    background-color:black;
-   height:20%;
+   height:10%;
    width:100%;
-
-
+   display: flex;
 }
 #content_Header{
-   padding: 50px;
+   margin: auto;
+   padding-left: 5%;
+   padding-right: 5%;
    width:100%;
    display: flex;
    justify-content: space-between;
    
+}
+
+#GithubCat > img {
+    width: 40px;
+    height: 40px;
 }
 
 #dynamic_content{

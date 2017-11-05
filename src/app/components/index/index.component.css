@@ -32,4 +32,8 @@
       border:2px solid #616162;
      background-color: #E9EAF0;
  }
+ .error {
+     color: #E74A4A;
+     font-size: 16px;
+ }
  
