@@ -89,7 +89,7 @@
     background-color: #5696FE;
     border-radius: 8px;
     display: inline-block;
-    margin-left:115px;
+    margin-left:111px;
    
 }
 .StaticBlock1:hover, .StaticBlock2:hover{
@@ -116,3 +116,28 @@
     top:10px;
 }
 
+#TableIssue{
+    width:45%;
+    border: 1px solid #CBC1C1;
+    
+}
+table #TableIssue{
+    width:30%;
+    border-collapse: collapse; 
+    
+}
+.issue:hover{
+    background-color: #F8FBFC;
+    cursor: pointer;
+}
+.textIssue{
+    color:black;
+    font-size: 12px;
+    
+}
+#Issue{
+    text-align: center;
+}
+.issue{
+    border-bottom: 1px solid #CBC1C1;
+}
