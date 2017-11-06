@@ -1,0 +1,118 @@
+.Wrapper{
+    padding-top:30px;
+}
+#InfinitLoop{
+    width:50%;
+    height:100%;
+    border-radius: 8px;
+    border:1px solid #DCDBDB;
+}
+#HeaderInfinitLoop{
+    background-color: #F0EFEF;
+    width:99;
+    height:99%;
+    font-size: 15px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 8px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+#ContentInfinitLoop{
+    padding: 5px;
+}
+.Browser{
+    background-color: #27ADEC;
+    width:90px;
+    height:17px;
+    text-align: center;
+    border-radius: 16px;
+    font-size:14px;
+    color:white;
+    display:inline-block;
+}
+.Component{
+    background-color: #E3F826;
+    width:120px;
+    height:17px;
+    text-align: center;
+    border-radius: 16px;
+    font-size:14px;
+    color:white;
+    display:inline-block;
+    
+}
+/*Relevant: */
+#IssueAndRPS{
+    width:50%;
+    height:100%;
+    border-radius: 8px;
+    border:1px solid #DCDBDB;
+    
+}
+#RelevantIssues,#RelevantRps{
+    border-bottom: 1px solid #DCDBDB;
+    padding: 8px;
+  
+}
+.Label_1{
+    background-color: #A09E9E;
+    width:40px;
+    height:20px;
+    text-align: center;
+    border-radius: 8px;
+    font-size:14px;
+    color:white;
+    display:inline-block;
+    color:white;
+
+}
+
+.TextIssue{
+    font-size:20px;
+    padding-left: 15px;
+
+ 
+}
+.StaticBlock1{
+    width:60px;
+    height:40px;
+    background-color: #5696FE;
+    border-radius: 8px;
+    display: inline-block;
+    margin-left:100px;
+   
+}
+.StaticBlock2{
+    width:60px;
+    height:40px;
+    background-color: #5696FE;
+    border-radius: 8px;
+    display: inline-block;
+    margin-left:115px;
+   
+}
+.StaticBlock1:hover, .StaticBlock2:hover{
+    cursor: pointer;
+    background-color: #13F739;
+
+}
+
+.FirstStBL{
+    width:50%;
+    display: inline-block;
+    background-color: black;
+    
+}
+.SecondStBl{
+    display: inline-block;
+}
+.characterForBlock{
+    color:white;
+    border-radius: 50%;
+    border:1px solid white;
+    padding:5px;
+    position:relative;
+    top:10px;
+}
+
