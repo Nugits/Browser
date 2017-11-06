@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { NgZone } from '@angular/core';
 import { ActivatedRoute, Router, Route } from '@angular/router';
 
 import { HttpService } from '../../services/http.service';
 import { IssueService } from '../../services/issue.service';
 
-import { Issue } from '../../shared/models/github-models';
+import { Issue, GithubRepository } from '../../shared/models/github-models';
 
 @Component({
   selector: 'app-repository',
@@ -14,7 +15,12 @@ import { Issue } from '../../shared/models/github-models';
 })
 export class RepositoryComponent implements OnInit {
 
+  repository: GithubRepository;
   issues: Issue[];
+  filteredIssues: Issue[] = [];
+  labelTypes: string[];
+  labelTypesCount: {[key: string]: number};
+  keys: string[];
 
   owner: string;
   repo: string;
@@ -22,7 +28,8 @@ export class RepositoryComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private httpService: HttpService,
-    private issueService: IssueService
+    private issueService: IssueService,
+    private zone: NgZone
   ) { }
 
   ngOnInit() {
@@ -30,20 +37,49 @@ export class RepositoryComponent implements OnInit {
     let repo: string = this.activatedRoute.snapshot.params['repository'];
     this.owner = owner;
     this.repo = repo;
-    console.log(`Owner: ${owner}, Repo: ${repo}`);
-
     this.issueService.getRepositoryIssues(this.owner, this.repo)
       .then(res => {
         this.issues = res;
-        console.log(res);
-        return this.issueService.getIssueComments(res[0].comments_url);
+        res.forEach(issue => {
+          this.filteredIssues.push(issue);
+        })
+        this.initLabelTypes(res);
+        return this.issueService.getRepositoryInfo(this.owner, this.repo);
       }).then(res => {
-        console.log(res);
-        console.log('------LABEL-TYPES---------');
-        console.log(this.issueService.getIssueLabelTypes(this.issues));
-        console.log('------LABEL-SUBTYPES---------');
-        console.log(this.issueService.getSubtypesByType(this.issues, 'type'));
+        this.repository = res;
       });
   }
 
+  selectType(type: string) {
+    console.log('lalala');
+    debugger;
+    this.zone.run(() => {
+      this.labelTypesCount = this.issueService.getLabelsCountBySubtype(this.issues, type);
+      this.keys = Object.keys(this.labelTypesCount);
+    });
+  }
+
+  private initLabelTypes(issues: Issue[]) {
+    this.labelTypes = Array.from(this.issueService.getIssueLabelTypes(issues));
+    this.labelTypesCount = this.issueService.getLabelsCountBySubtype(issues, this.labelTypes[0]);
+    this.keys = Object.keys(this.labelTypesCount);
+  }
+
+  filterIssues(subtype: string) {
+    this.filteredIssues.length = 0;
+    this.issues.filter(issue => this.containsSubtype(issue, subtype)).forEach(issue => {
+      this.filteredIssues.push(issue);
+    });
+  }
+  
+  private containsSubtype(issue: Issue, subtype: string) {
+    let result: boolean = false;
+    issue.labels.forEach(l => {
+      if (this.issueService.extractSubtype(l.name) === subtype) {
+        result = true;
+      }
+    });
+
+    return result;
+  }
 }

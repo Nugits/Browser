@@ -56,11 +56,34 @@ export class IssueService {
     return subTypes;
   }
 
-  private extractType(label: string): string {
+  getLabelsCountBySubtype(issues: Issue[], type: string): {[key: string]: number} {
+    let result: {[key: string]: number} = {};
+    issues.forEach(issue => {
+      let used: Set<string> = new Set<string>();
+      issue.labels.filter(l => {
+        let t = this.extractType(l.name);
+        return t === null ? false : type === t;
+      })
+      .forEach(label => {
+        let sub = this.extractSubtype(label.name);
+        if (sub !== null && !used.has(sub)) {
+          if (result[sub] === undefined) {
+            result[sub] = 0;
+          }
+          result[sub]++;
+          used.add(sub);
+        }
+      });
+    });
+
+    return result;
+  }
+
+  extractType(label: string): string {
     return this.labelSplit(label, 0);
   }
 
-  private extractSubtype(label: string): string {
+  extractSubtype(label: string): string {
     return this.labelSplit(label, 1);
   }
 
