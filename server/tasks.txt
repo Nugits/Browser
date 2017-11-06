@@ -1,0 +1,2 @@
+endpoint: return relevant pull request by {owner, repo, issue number}
+endpoint: return relevant issue by {owner, repo, issue number}

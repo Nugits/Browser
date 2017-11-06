@@ -25,6 +25,26 @@ function Server() {
                     res.send(obj);
                 });
         });
+
+        express.get('/api/relevant/issues', function (req, res) {
+            let owner = req.query.owner;
+            let issue = req.query.issue;
+            let repo = req.query.repo;
+            relevantIssues(owner, repo, issue)
+                .then(function (obj) {
+                    res.send(obj);
+                });
+        });
+
+        express.get('/api/relevant/pulls', function (req, res) {
+            let owner = req.query.owner;
+            let issue = req.query.issue;
+            let repo = req.query.repo;
+            relevantPulls(owner, repo, issue)
+                .then(function (obj) {
+                    res.send(obj);
+                });
+        });
     }
 
     const https = require('https');
@@ -98,10 +118,52 @@ function Server() {
         return result;
     }
 
+    function relevantIssues(owner, repo, issue) {
+        return relevantObjects(owner, repo, 'issues', issue);
+    }
 
+    function relevantPulls(owner, repo, issue) {
+        return relevantObjects(owner, repo, 'pull', issue);
+    }
+
+    function relevantObjects(owner, repo, type, param) {
+        var url = "/repos/" + owner +
+            "/" + repo +
+            "/issues/" + param;
+        let result_list = [];
+        let link = 'https:\\/\\/github\\.com\\/facebook\\/react\\/' + type + "\\/";
+        let reg = new RegExp(link + '[0-9]+');
+        link = link.replace(/\\/g, '');
+        var result = new Promise(function (resolve) {
+            doRequestPromise(url)
+                .then(function (object) {
+                    let i = reg.exec(object.body);
+                    if (i != null)
+                        i.forEach(function (element) {
+                            result_list.push(element);
+                        }, this);
+                    if (object.comments !== undefined && object.comments > 0) {
+                        doRequestPromise(url + "/comments")
+                            .then(function (comments) {
+                                comments.forEach(function (comment) {
+                                    let i2 = reg.exec(comment.body);
+                                    if (i2 != null)
+                                        i2.forEach(function (element) {
+                                            result_list.push(element.substring(link.length));
+                                        }, this);
+                                }, this);
+                            })
+                            .then(() => resolve(result_list));
+                    }
+                });
+        });
+        return result;
+    }
 
     return {
         register: start,
+        // relevantIssues: relevantIssues,
+        // relevantPulls: relevantPulls,
         // doRequest: doRequest,
         // doRequessPromise: doRequestPromise,
         // getIssues: getIssues,
@@ -109,3 +171,14 @@ function Server() {
     };
 }
 module.exports = Server();
+
+// var s = Server();
+// s.relevantIssues('facebook', 'react', 11423)
+//     .then(function (issues) {
+//         console.info(issues);
+//     });
+// s.relevantPulls('facebook', 'react', 11423)
+//     .then(function (issues) {
+//         console.info(issues);
+//     });
+//localhost:3000/api/relevant/pulls?owner=facebook&repo=react&issue=11423
